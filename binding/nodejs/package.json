@@ -1,5 +1,5 @@
 {
-  "name": "node-ip2region",
+  "name": "@imaegoo/node-ip2region",
   "version": "2.0.0",
   "description": "official nodejs client of ip2region",
   "main": "index.js",
@@ -11,6 +11,9 @@
   },
   "author": "Wu Jian Ping",
   "license": "ISC",
+  "publishConfig": {
+    "access": "public"
+  },
   "devDependencies": {
     "@types/chai": "^4.3.1",
     "@types/node": "^18.0.6",
