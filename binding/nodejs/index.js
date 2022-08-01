@@ -3,6 +3,7 @@
  */
 
 const fs = require('fs')
+const path = require('path')
 
 const VectorIndexSize = 8
 const VectorIndexCols = 256
@@ -13,6 +14,8 @@ const IP_REGEX = /^((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.){3}(\d|[1-9]\d|1\d\d|2
 const getStartEndPtr = Symbol('#getStartEndPtr')
 const getBuffer = Symbol('#getBuffer')
 const openFilePromise = Symbol('#openFilePromise')
+
+const defaultDbPath = path.resolve(__dirname, './ip2region.xdb')
 
 class Searcher {
   constructor (dbFile, vectorIndex, buffer) {
@@ -150,13 +153,13 @@ const isValidIp = ip => {
   return IP_REGEX.test(ip)
 }
 
-const newWithFileOnly = dbPath => {
+const newWithFileOnly = (dbPath = defaultDbPath) => {
   _checkFile(dbPath)
 
   return new Searcher(dbPath, null, null)
 }
 
-const newWithVectorIndex = (dbPath, vectorIndex) => {
+const newWithVectorIndex = (dbPath = defaultDbPath, vectorIndex) => {
   _checkFile(dbPath)
 
   if (!Buffer.isBuffer(vectorIndex)) {
@@ -174,7 +177,7 @@ const newWithBuffer = buffer => {
   return new Searcher(null, null, buffer)
 }
 
-const loadVectorIndexFromFile = dbPath => {
+const loadVectorIndexFromFile = (dbPath = defaultDbPath) => {
   const fd = fs.openSync(dbPath, 'r')
   const buffer = Buffer.alloc(VectorIndexLength)
   fs.readSync(fd, buffer, 0, VectorIndexLength, 256)
@@ -182,7 +185,7 @@ const loadVectorIndexFromFile = dbPath => {
   return buffer
 }
 
-const loadContentFromFile = dbPath => {
+const loadContentFromFile = (dbPath = defaultDbPath) => {
   const stats = fs.statSync(dbPath)
   const buffer = Buffer.alloc(stats.size)
   const fd = fs.openSync(dbPath, 'r')
