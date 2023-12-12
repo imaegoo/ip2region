@@ -7,11 +7,12 @@
   "license": "MIT",
   "publishConfig": {
     "access": "public",
-    "tag": "v6"
+    "registry": "https://registry.npmjs.org",
+    "tag": "ipv6"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/imaegoo/ip2region.git"
+    "url": "git+https://github.com/imaegoo/ip2region.git"
   },
   "homepage": "https://github.com/imaegoo/ip2region/tree/v6",
   "dependencies": {
