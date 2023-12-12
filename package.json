@@ -1,0 +1,19 @@
+{
+  "name": "@imaegoo/node-ip2region",
+  "version": "6.0.0",
+  "description": "IP2Location with database",
+  "main": "index.js",
+  "author": "imaegoo <hello@imaegoo.com> (https://github.com/imaegoo)",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/imaegoo/ip2region.git"
+  },
+  "homepage": "https://github.com/imaegoo/ip2region/tree/v6",
+  "dependencies": {
+    "ip2location-nodejs": "^9.6.1"
+  }
+}
