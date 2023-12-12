@@ -6,7 +6,8 @@
   "author": "imaegoo <hello@imaegoo.com> (https://github.com/imaegoo)",
   "license": "MIT",
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "tag": "v6"
   },
   "repository": {
     "type": "git",
